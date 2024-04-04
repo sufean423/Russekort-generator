@@ -1,0 +1,43 @@
+    #bilde{
+        display: flex;
+        grid-area: bilde;
+        align-items: center;
+        justify-content: center;
+    }
+    #bilde > img{
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+        transform:rotate(-10deg);
+    }
+    #skole{
+        grid-area: skole;
+    }
+    #navn{
+        grid-area: navn;
+    }
+    #tlfOgAdresse{
+        grid-area: tlfAdd;
+    }
+    #sitat{
+        display: flex;
+        grid-area: sitat;
+    }
+    #russekort{
+        padding: 8px;
+        background-color: red;
+        width: 800px;
+        height: 300px;
+        display: grid;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: 
+        'bilde bilde skole skole skole skole '
+        'bilde bilde navn navn navn navn '
+        'bilde bilde tlfAdd tlfAdd tlfAdd tlfAdd'
+        'bilde bilde sitat sitat sitat sitat ';
+    }
+    #russekort > div{
+        justify-content: center;
+        align-items: center;
+    }
