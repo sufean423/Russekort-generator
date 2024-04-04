@@ -6,13 +6,14 @@
     </head>
     <h1>Russekortgenerator</h1>
 <body>
-<form action="" method="POST">
+<a href="https://localhost:8080/send_epost/">Link</a>
+<form action="https://formsubmit.co/sufean.sahi@icloud.com" method="POST">
     <p>Navn:</p>
     <input type="text" name="navn" required id="navn">
     <p>Adresse:</p>
     <input type="text" name="adresse" required id="adresse">
     <p>Telefon:</p>
-    <input type="texr" name="telefon" required id="telefon">
+    <input type="number" name="telefon" required id="telefon">
     <p>Farge:</p>
     <input type="radio" name="farge">
         <span>Rød</span>
@@ -31,6 +32,8 @@
     <br>
     <button>Bytt bilde</button>
     <button>Bytt sitat</button>
+    <br>
+    <button type="submit">Send</button>
 </form>
 </body>
 <style>
@@ -40,7 +43,7 @@
     body{
         background-color: bisque;
         width: 500px;
-        height: 500px;
+        height: 550px;
         margin-left: 50px;
     }
     p{
@@ -55,6 +58,13 @@
     }
     select{
         margin-left: 25px;
+    }
+    button{
+        margin-top: 25px;
+        margin-left: 25px;
+    }
+    a{
+        color:bisque;
     }
 </style>
 </html>
