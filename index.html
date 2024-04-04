@@ -5,46 +5,65 @@
         <title>Russekort Generator</title>
     </head>
     <h1>Russekortgenerator</h1>
-<body>
-<a href="https://localhost:8080/send_epost/">Link</a>
-<form action="https://formsubmit.co/sufean.sahi@icloud.com" method="POST">
-    <p>Navn:</p>
-    <input type="text" name="navn" required id="navn">
-    <p>Adresse:</p>
-    <input type="text" name="adresse" required id="adresse">
-    <p>Telefon:</p>
-    <input type="number" name="telefon" required id="telefon">
-    <p>Farge:</p>
-    <input type="radio" name="farge">
-        <span>Rød</span>
-        <input type="radio" name="farge">
-        <span>Blå</span>
-        <input type="radio" name="farge">
-        <span>Svart</span>
-    <p>Skole:</p>
-    <select name="skole" required id="skole">
-        <option value="">Velg skole</option>
-        <option value="Mailand Videregående Skole">Mailand Videregående Skole</option>
-        <option value="Lørenskog Videregående Skole">Lørenskog Videregående Skole</option>
-        <option value="Lillestrøm Videregående Skole">Lillestrøm Videregående Skole</option>
-        <option value="Skedsmo Videregående Skole">Skedsmo Videregående Skole</option>
-    </select>
-    <br>
-    <button>Bytt bilde</button>
-    <button>Bytt sitat</button>
-    <br>
-    <button type="submit">Send</button>
-</form>
+    <body>
+        <a href="http://localhost:8080/OneDrive%20-%20Viken%20fylkeskommune/Dokumenter/GitHub/Russekort-generator/">link</a>
+        <div id="form">
+            <button id="byttBilde">Bytt bilde</button>
+            <button id="byttSitat">Bytt sitat</button>
+            <form action="https://formsubmit.co/frtra001@gmail.com" method="POST">
+                <br>
+                <p>Navn:</p>
+                <input type="text" name="navn" required id="navnValue" value="#">
+                <p>Adresse:</p>
+                <input type="email" name="adresse" required id="adresseValue" value="#">
+                <p>Telefon:</p>
+                <input type="tel" name="telefon" required id="telefonValue" value="#">
+                <p>Farge:</p>
+                <input type="radio" name="farge" value="rod" id="rodKnapp">
+                <span>Rød</span>
+                <input type="radio" name="farge" value="blaa" id="blaaKnapp" >
+                <span>Blå</span>
+                <input type="radio" name="farge" value="svart" id="svartKnapp">
+                <span>Svart</span>
+            <p>Skole:</p>
+            <select name="skole" required id="skoleValue">
+                <option value="">Velg skole</option>
+                <option value="Mailand Videregående Skole">Mailand Videregående Skole</option>
+                <option value="Lørenskog Videregående Skole">Lørenskog Videregående Skole</option>
+                <option value="Lillestrøm Videregående Skole">Lillestrøm Videregående Skole</option>
+                <option value="Skedsmo Videregående Skole">Skedsmo Videregående Skole</option>
+            </select>
+            <br>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+<div id="russekort" class="container">
+    <img id="bilde" src="#">
+    <h1 id="skole">Skolens russ</h1>
+    <h2 id="navn">Fornavn Etternavn</h2>
+    <p id="tlfOgAdresse">tlf: 999 99 999  addresse: veiveien 19</p>
+    <p id="sitat">sett inn sitat</p>
+</div>
+<div id="lys" class="container"></div>
 </body>
 <style>
-    html{
-        background-color: white;
-    }
-    body{
+    #form{
+        padding-top: 1rem;
         background-color: bisque;
         width: 500px;
-        height: 550px;
+        height: 500px;
         margin-left: 50px;
+    }
+    #lys{
+        width: 300px;
+        height: 120px;
+        box-shadow: white 10px 10px 150px 150px;
+        z-index: 1;
+        background-color: white;
+        filter:opacity(35%);
+        position: absolute;
+        margin-top: 200px;
+        margin-left: 120px;
     }
     p{
         margin-left: 25px;
@@ -52,19 +71,164 @@
     input{
         margin-left: 25px;
     }
-    h1{
-        
-        background-color: white;
-    }
-    select{
-        margin-left: 25px;
-    }
     button{
         margin-top: 25px;
         margin-left: 25px;
     }
-    a{
-        color:bisque;
+    select{
+        margin-left: 25px;
+    }
+    #bilde{
+        grid-area: bilde;
+        display:block;
+        align-self: center;
+        justify-self: center;
+        width: 75%;
+        height: 75%;
+        object-fit: cover;
+        transform:rotate(-10deg);
+        border: 2px solid black;
+    }
+    #skole{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: skole;
+    }
+    #navn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: navn;
+    }
+    #tlfOgAdresse{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: tlfAdd;
+    }
+    #sitat{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: sitat;
+    }
+    .container{
+        width: 600px;
+        height: 300px;
+        position: relative;
+        margin-top: 100px;
+    }
+    #russekort{
+        padding: 8px;
+        background-color: red;
+        display: grid;
+        position: absolute;
+        grid-template-rows: repeat(4, 1fr);
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: 
+        'bilde bilde skole skole skole skole '
+        'bilde bilde navn navn navn navn '
+        'bilde bilde tlfAdd tlfAdd tlfAdd tlfAdd'
+        'bilde bilde sitat sitat sitat sitat ';
+    }
+    #russekort > div{
+        justify-content: center;
+        align-items: center;
     }
 </style>
 </html>
+<script>
+let russekortEl = document.querySelector("#russekort")
+let bildeEl = document.querySelector("#bilde")
+let skoleEl = document.querySelector("#skole")
+let navnEl = document.querySelector("#navn")
+let tlfAddEl = document.querySelector("#tlfOgAdresse")
+let sitatEl = document.querySelector("#sitat")
+
+let skoleValue = document.querySelector("#skoleValue")
+let navnValue = document.querySelector("#navnValue")
+let telefonValue = document.querySelector("#telefonValue")
+let addresseValue = document.querySelector("#adresseValue")
+
+let knappBildeEl = document.querySelector("#byttBilde")
+let knappSitatEl = document.querySelector("#byttSitat")
+
+let rodKnappEl = document.querySelector("#rodKnapp")
+let blaaKnappEl = document.querySelector("#blaaKnapp")
+let svartKnappEl = document.querySelector("#svartKnapp")
+
+byttBilde()
+byttSitat()
+
+skoleValue.addEventListener("change", leggtilSkole)
+navnValue.addEventListener("change", leggtilNavn)
+telefonValue.addEventListener("change", leggtilTlf)
+addresseValue.addEventListener("change", leggtilAddresse)
+knappSitatEl.addEventListener("click", byttSitat)
+knappBildeEl.addEventListener("click", byttBilde)
+blaaKnappEl.addEventListener("click", byttFargeBlaa)
+rodKnappEl.addEventListener("click", byttFargeRod)
+svartKnappEl.addEventListener("click", byttFargeSvart)
+
+function leggtilSkole(){
+    console.log(skoleValue.value)
+    skoleEl.innerHTML = skoleValue.value
+}
+
+function leggtilNavn(){
+    console.log(navnValue.value)
+    navnEl.innerHTML = navnValue.value
+}
+
+function leggtilAddresse(){
+    console.log(addresseValue.value)
+    tlfAddEl.innerHTML = `tlf: ${Number(telefonValue.value)}, addresse: ${addresseValue.value}`
+}
+function leggtilTlf(){
+    console.log(telefonValue.value)
+    tlfAddEl.innerHTML = `tlf: ${Number(telefonValue.value)}, addresse: ${addresseValue.value}`
+}
+
+
+async function byttSitat(){
+    const data = await fetch("https://api.quotable.io/random")
+    const json = await data.json()
+    console.log(json.content)
+    sitatEl.innerHTML = json.content
+}
+
+async function byttBilde(){
+    const data = await fetch("https://random.imagecdn.app/v1/image?width=500&height=150")
+    const json = await data.text()
+    console.log(json)
+    bildeEl.setAttribute("src", json)
+}
+
+function byttFargeRod(e){
+    console.log(e)
+    russekortEl.style.backgroundColor = "red"
+    skoleEl.style.color = "black"
+    sitatEl.style.color = "black"
+    navnEl.style.color = "black"
+    tlfAddEl.style.color = "black"
+}
+
+function byttFargeBlaa(e){
+    console.log(e)
+    russekortEl.style.backgroundColor = "blue"
+    skoleEl.style.color = "white"
+    sitatEl.style.color = "white"
+    navnEl.style.color = "white"
+    tlfAddEl.style.color = "white"
+}
+
+function byttFargeSvart(e){
+    console.log(e)
+    russekortEl.style.backgroundColor = "black"
+    skoleEl.style.color = "white"
+    sitatEl.style.color = "white"
+    navnEl.style.color = "white"
+    tlfAddEl.style.color = "white"
+}
+</script>
